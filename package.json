@@ -86,6 +86,7 @@
     "bootstrap": "4.6.2",
     "bootstrap-vue": "2.22.0",
     "bootswatch": "5.2.0",
+    "browser-sync": "^2.27.11",
     "dayjs": "1.11.5",
     "vue": "2.7.5",
     "vue-class-component": "7.2.6",

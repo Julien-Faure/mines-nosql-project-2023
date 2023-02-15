@@ -31,6 +31,10 @@
           </span>
           <entities-menu></entities-menu>
           <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+          <b-dropdown-item to="/project/users" active-class="active">
+            <font-awesome-icon icon="users" />
+            <span>Users</span>
+          </b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item-dropdown
           right

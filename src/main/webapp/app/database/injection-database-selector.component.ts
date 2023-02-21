@@ -7,7 +7,6 @@ export default class InjectionDatabaseSelectorComponent extends Vue {
   public databases: String[] = [];
 
   public mounted() {
-    console.log(this.databaseService);
     this.databaseService()
       .list()
       .then(value => {
@@ -18,6 +17,15 @@ export default class InjectionDatabaseSelectorComponent extends Vue {
 
   public select(): void {
     const select = this.$el.getElementsByTagName('select')[0] as HTMLSelectElement;
-    console.log(select.value);
+    let dataBaseType = select.value;
+    console.log(dataBaseType);
+    this.databaseService()
+      .switch(dataBaseType)
+      .then(() => {
+        console.log('Database type switched to ' + dataBaseType);
+      })
+      .catch(reason => {
+        console.error('Unable to switch database type to ' + dataBaseType + ' : ' + reason);
+      });
   }
 }

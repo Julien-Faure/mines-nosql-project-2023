@@ -2,14 +2,12 @@ package fr.ales.mines.web.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.ales.mines.repository.dto.postgres.PersonDto;
+import fr.ales.mines.entities.Person;
 import fr.ales.mines.service.database.DatabaseService;
-import fr.ales.mines.service.database.DatabaseServiceImpl;
 import fr.ales.mines.service.database.DatabaseType;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +44,7 @@ public class DatabaseController {
 
     @GetMapping("/person")
     public ResponseEntity<String> listPerson() {
-        List<PersonDto> persons = this.service.listPerson();
+        List<Person> persons = this.service.listPerson();
         ObjectMapper mapper = new ObjectMapper();
         try {
             return ResponseEntity.ok(mapper.writeValueAsString(persons));

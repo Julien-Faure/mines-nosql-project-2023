@@ -34,6 +34,11 @@ spring:
     password: root
     driverClassName: org.postgresql.Driver
     initialization-mode: always
+  data:
+    neo4j:
+      uri: bolt://localhost:7687
+      username: <username>
+      password: <password>
   mail:
     host: localhost
     port: 25

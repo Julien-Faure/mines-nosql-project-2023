@@ -29,8 +29,8 @@ version = "0.0.1-SNAPSHOT"
 
 description = ""
 
-sourceCompatibility=11
-targetCompatibility=11
+sourceCompatibility= 16
+targetCompatibility= 16
 assert System.properties["java.specification.version"] == "11" || "12" || "13" || "14" || "15" || "16" || "17" || "18"
 
 apply from: "gradle/docker.gradle"
@@ -239,6 +239,7 @@ dependencies {
     liquibaseRuntime "org.liquibase.ext:liquibase-hibernate5:${liquibaseHibernate5Version}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
     implementation 'org.projectlombok:lombok:1.18.26'
+    implementation "org.postgresql:postgresql:42.5.4"
 }
 
 if (project.hasProperty("gae")) {

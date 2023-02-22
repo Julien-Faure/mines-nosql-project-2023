@@ -24,14 +24,32 @@
             <span>Home</span>
           </span>
         </b-nav-item>
-        <b-nav-item-dropdown right id="entity-menu" v-if="authenticated" active-class="active" class="pointer" data-cy="entity">
+        <b-nav-item-dropdown right id="entity-menu" active-class="active" class="pointer" data-cy="entity">
           <span slot="button-content" class="navbar-dropdown-menu">
             <font-awesome-icon icon="th-list" />
             <span class="no-bold">Entities</span>
           </span>
           <entities-menu></entities-menu>
           <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+          <b-dropdown-item to="/project/users" active-class="active">
+            <font-awesome-icon icon="users" />
+            <span>Users</span>
+          </b-dropdown-item>
         </b-nav-item-dropdown>
+
+        <b-nav-item-dropdown right active-class="active" class="pointer" data-cy="entity">
+          <span slot="button-content" class="navbar-dropdown-menu">
+            <font-awesome-icon icon="th-list" />
+            <span class="no-bold">Database</span>
+          </span>
+          <entities-menu></entities-menu>
+          <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+          <b-dropdown-item to="/database/injection" active-class="active">
+            <font-awesome-icon icon="users" />
+            <span>Injections</span>
+          </b-dropdown-item>
+        </b-nav-item-dropdown>
+
         <b-nav-item-dropdown
           right
           id="admin-menu"

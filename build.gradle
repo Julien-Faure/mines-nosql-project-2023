@@ -241,7 +241,13 @@ dependencies {
     compileOnly "org.projectlombok:lombok:1.18.26"
     annotationProcessor "org.projectlombok:lombok:1.18.26"
     implementation "org.postgresql:postgresql:42.5.4"
-    implementation "org.neo4j.driver:neo4j-java-driver-spring-boot-starter:4.3-SNAPSHOT"
+    // https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver-spring-boot-starter
+    implementation group: 'org.neo4j.driver', name: 'neo4j-java-driver-spring-boot-starter', version: '4.3.6.0'
+    // https://mvnrepository.com/artifact/org.neo4j/neo4j-ogm-embedded-driver
+//    implementation group: 'org.neo4j', name: 'neo4j-ogm-embedded-driver', version: '3.2.39'
+    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-
+    implementation group: 'org.springframework.data', name: 'spring-data-neo4j', version: ''
+
 }
 
 if (project.hasProperty("gae")) {

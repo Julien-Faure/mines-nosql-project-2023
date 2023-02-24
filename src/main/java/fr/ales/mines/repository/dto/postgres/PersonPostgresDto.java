@@ -1,9 +1,5 @@
 package fr.ales.mines.repository.dto.postgres;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.hibernate.annotations.Fetch;
 import org.springframework.boot.jackson.JsonComponent;
 
 import javax.persistence.*;
@@ -12,7 +8,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 @JsonComponent
-public class PersonDto {
+public class PersonPostgresDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -31,7 +27,7 @@ public class PersonDto {
     @JoinTable(name = "followers",
         joinColumns = {@JoinColumn(name = "followed_id")},
         inverseJoinColumns = {@JoinColumn(name = "follower_id")})
-    private Set<PersonDto> followed;
+    private Set<PersonPostgresDto> followed;
 
     public Integer getUserId() {
         return userId;
@@ -65,11 +61,11 @@ public class PersonDto {
         this.password = password;
     }
 
-    public Set<PersonDto> getFollowed() {
+    public Set<PersonPostgresDto> getFollowed() {
         return followed;
     }
 
-    public void setFollowed(Set<PersonDto> followed) {
+    public void setFollowed(Set<PersonPostgresDto> followed) {
         this.followed = followed;
     }
 }

@@ -37,8 +37,8 @@ spring:
   data:
     neo4j:
       uri: bolt://localhost:7687
-      username: <username>
-      password: <password>
+      username: neo4j
+      password: rootroot
   mail:
     host: localhost
     port: 25

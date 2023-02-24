@@ -19,7 +19,7 @@ public class DatabaseStrategyFactory {
                 return context.getBean(DatabaseStrategyPostgresSqlImpl.class);
             }
             default ->{
-                return context.getBean(DatabaseStrategyMokeImpl.class);
+                return context.getBean(DatabaseStrategyNeo4jImpl.class);
             }
         }
     }

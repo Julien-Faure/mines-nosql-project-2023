@@ -36,6 +36,9 @@ module.exports = async (env, options) => {
         static: {
           directory: './build/resources/main/static/',
         },
+        client: {
+          overlay: false,
+        },
         port: 9060,
         proxy: [
           {

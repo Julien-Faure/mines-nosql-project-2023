@@ -8,5 +8,5 @@ export class PersonModel {
   email?:string;
   password?:string;
   followed?:PersonMinimizedModel[];
-  purchases?:ProductModel[];
+  purchasedProducts?:ProductModel[];
 }

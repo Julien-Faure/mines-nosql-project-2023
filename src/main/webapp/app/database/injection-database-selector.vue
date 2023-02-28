@@ -11,9 +11,9 @@
 <script lang="ts" src="./injection-database-selector.component.ts"></script>
 
 <style scoped>
-/*img {*/
-/*  height : 35px;*/
-/*  width : 35px;*/
-/*  visibility: hidden;*/
-/*}*/
+img {
+  height : 35px;
+  width : 35px;
+  visibility: hidden;
+}
 </style>

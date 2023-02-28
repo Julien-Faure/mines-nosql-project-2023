@@ -46,7 +46,7 @@
           <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
           <b-dropdown-item to="/database/injection" active-class="active">
             <font-awesome-icon icon="users" />
-            <span>Injections</span>
+            <span>Person list</span>
           </b-dropdown-item>
         </b-nav-item-dropdown>
 

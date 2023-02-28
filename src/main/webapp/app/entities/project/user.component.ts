@@ -1,5 +1,4 @@
 import { Component, Provide, Vue } from 'vue-property-decorator';
-import { UserProjectService } from '@/entities/project/user.service';
 
 @Component
 export default class User extends Vue {

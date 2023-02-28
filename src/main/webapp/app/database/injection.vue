@@ -4,6 +4,7 @@
     <div>
       <h2>Choose your database</h2>
       <database-selector></database-selector>
+      <person-list></person-list>
     </div>
   </div>
 </template>

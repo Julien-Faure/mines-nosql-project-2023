@@ -13,4 +13,5 @@ public class Person {
     private String email;
     private String password;
     private List<PersonMinimized> followed;
+    private List<Product> purchasedProducts;
 }

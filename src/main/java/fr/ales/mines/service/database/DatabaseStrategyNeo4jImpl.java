@@ -4,7 +4,6 @@ import fr.ales.mines.entities.Person;
 import fr.ales.mines.repository.dto.neo4j.PersonNeo4jRepository;
 import fr.ales.mines.service.database.mapper.PersonMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class DatabaseStrategyNeo4jImpl implements DatabaseStrategy {
 
     @Override
     public List<Person> listPerson() {
-        List<Person> people = repository.findAll(PageRequest.of(0, 10)).map(PersonMapper::map).toList();
+        List<Person> people = repository.findPersonWithLimit(10).stream().map(PersonMapper::map).toList();
         return people;
     }
 }

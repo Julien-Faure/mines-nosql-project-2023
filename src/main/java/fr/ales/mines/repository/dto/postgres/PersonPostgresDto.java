@@ -29,6 +29,12 @@ public class PersonPostgresDto {
         inverseJoinColumns = {@JoinColumn(name = "follower_id")})
     private Set<PersonPostgresDto> followed;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "purchases",
+        joinColumns = {@JoinColumn(name = "user_id")},
+        inverseJoinColumns = {@JoinColumn(name = "product_id")})
+    private Set<ProductPostgresDto> purchases;
+
     public Integer getUserId() {
         return userId;
     }
@@ -67,5 +73,13 @@ public class PersonPostgresDto {
 
     public void setFollowed(Set<PersonPostgresDto> followed) {
         this.followed = followed;
+    }
+
+    public Set<ProductPostgresDto> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(Set<ProductPostgresDto> purchases) {
+        this.purchases = purchases;
     }
 }

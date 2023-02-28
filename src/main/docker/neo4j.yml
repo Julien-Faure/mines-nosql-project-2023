@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       NEO4J_AUTH: neo4j/rootroot
-      NEO4JLABS_PLUGINS: '[ "apoc" ]'
+      NEO4J_PLUGINS: '[ "apoc" ]'
 #      - NEO4J_dbms_memory_heap_max__size=4G
     ports:
       - 7474:7474

@@ -23,6 +23,9 @@ public class PersonNeo4jDto {
     @Relationship(type = "Follows", direction = Relationship.Direction.OUTGOING)
     private List<PersonNeo4jDto> persons;
 
+    @Relationship(type = "Purchased", direction = Relationship.Direction.OUTGOING)
+    private List<ProductNeo4jDto> purchasedProducts;
+
     public Long getId() {
         return id;
     }
@@ -61,5 +64,13 @@ public class PersonNeo4jDto {
 
     public void setPersons(List<PersonNeo4jDto> persons) {
         this.persons = persons;
+    }
+
+    public List<ProductNeo4jDto> getPurchasedProducts() {
+        return purchasedProducts;
+    }
+
+    public void setPurchasedProducts(List<ProductNeo4jDto> purchasedProducts) {
+        this.purchasedProducts = purchasedProducts;
     }
 }

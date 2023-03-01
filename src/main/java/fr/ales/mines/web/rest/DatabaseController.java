@@ -5,17 +5,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.ales.mines.entities.Person;
 import fr.ales.mines.entities.Request1Response;
 import fr.ales.mines.entities.Request2Response;
+import fr.ales.mines.entities.Request3Response;
 import fr.ales.mines.service.database.DatabaseService;
 import fr.ales.mines.service.database.DatabaseType;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -58,8 +58,10 @@ public class DatabaseController {
     }
 
     @GetMapping("/request/1")
-    public ResponseEntity<String> executeRequest1(@RequestParam(name = "username") String username,
-                                                  @RequestParam(name = "depth") int depth) {
+    public ResponseEntity<String> executeRequest1(
+        @RequestParam(name = "username") String username,
+        @RequestParam(name = "depth") int depth
+    ) {
         Request1Response response = this.service.executeRequest1(username, depth);
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -71,10 +73,27 @@ public class DatabaseController {
     }
 
     @GetMapping("/request/2")
-    public ResponseEntity<String> executeRequest2(@RequestParam(name = "username") String username,
-                                                  @RequestParam(name = "depth") int depth,
-                                                  @RequestParam(name = "productName") String productName) {
+    public ResponseEntity<String> executeRequest2(
+        @RequestParam(name = "username") String username,
+        @RequestParam(name = "depth") int depth,
+        @RequestParam(name = "productName") String productName
+    ) {
         Request2Response response = this.service.executeRequest2(username, depth, productName);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return ResponseEntity.ok(mapper.writeValueAsString(response));
+        } catch (JsonProcessingException e) {
+            log.error("Unable to convert response to JSON : %s".formatted(e.getMessage()), e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/request/3")
+    public ResponseEntity<String> executeRequest2(
+        @RequestParam(name = "productName") String productName,
+        @RequestParam(name = "depth") int depth
+    ) {
+        Request3Response response = this.service.executeRequest3(productName, depth);
         ObjectMapper mapper = new ObjectMapper();
         try {
             return ResponseEntity.ok(mapper.writeValueAsString(response));

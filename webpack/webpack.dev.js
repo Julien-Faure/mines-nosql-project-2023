@@ -8,7 +8,7 @@ const config = require('./config');
 module.exports = (env, options) => {
   const devConfig = {
     module: {
-      rules: styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true }),
+      rules: styleLoaders({sourceMap: config.dev.cssSourceMap, usePostCSS: true,type: "javascript/auto"})
     },
     // cheap-module-eval-source-map is faster for development
     devtool: config.dev.devtool,

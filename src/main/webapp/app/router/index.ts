@@ -41,7 +41,7 @@ const router = new Router({
     ...account,
     ...admin,
     entities,
-    database,
+    ...database,
     ...pages
   ]
 });

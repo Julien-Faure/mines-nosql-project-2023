@@ -1,11 +1,13 @@
-import { Authority } from '@/shared/security/authority';
-/* tslint:disable */
-// prettier-ignore
 const Injections = () => import('@/database/injection.vue');
+const Request1 = () => import('@/database/request1/request-1.vue');
 
-// jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
-
-export default {
-  path: '/database/injection',
-  component: Injections,
-};
+export default [
+  {
+    path: '/database/injection',
+    component: Injections
+  },
+  {
+    path: '/database/request/1',
+    component: Request1
+  }
+];

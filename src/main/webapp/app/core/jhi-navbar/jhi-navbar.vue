@@ -48,6 +48,11 @@
             <font-awesome-icon icon="users" />
             <span>Person list</span>
           </b-dropdown-item>
+
+          <b-dropdown-item to="/database/request/1" active-class="active">
+            <font-awesome-icon icon="users" />
+            <span>Requete 1</span>
+          </b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown

@@ -2,6 +2,7 @@ package fr.ales.mines.service.database;
 
 import fr.ales.mines.entities.Person;
 import fr.ales.mines.entities.Request1Response;
+import fr.ales.mines.entities.Request2Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,10 @@ public class DatabaseServiceImpl implements DatabaseService {
     @Override
     public Request1Response executeRequest1(String username, int depth) {
         return this.strategy.executeRequest1(username, depth);
+    }
+
+    @Override
+    public Request2Response executeRequest2(String username, int depth, String productName) {
+        return this.strategy.executeRequest2(username, depth, productName);
     }
 }

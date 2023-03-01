@@ -1,9 +1,6 @@
 package fr.ales.mines.service.database;
 
-import fr.ales.mines.entities.Person;
-import fr.ales.mines.entities.Request11Response;
-import fr.ales.mines.entities.Request12Response;
-import fr.ales.mines.entities.Request1Response;
+import fr.ales.mines.entities.*;
 import fr.ales.mines.repository.dto.neo4j.Neo4jRepoCustom;
 import fr.ales.mines.repository.dto.neo4j.PersonNeo4jRepository;
 import fr.ales.mines.service.database.mapper.PersonMapper;
@@ -44,6 +41,22 @@ public class DatabaseStrategyNeo4jImpl implements DatabaseStrategy {
             Request12Response request12Response = RequestResponseMapper.map12(request12);
 
             return Request1Response.builder().elapsedMsTime(System.currentTimeMillis() - start).request11Response(request11Responses).request12Response(request12Response).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Request2Response executeRequest2(String username, int depth, String productName) {
+
+        try {
+            long start = System.currentTimeMillis();
+            Record request2 = this.customRepo.executeRequest2(username, depth, username);
+
+            Request20Response response = RequestResponseMapper.map2(request2);
+
+            return Request2Response.builder().elapsedMsTime(System.currentTimeMillis() - start).payload(response).build();
         } catch (Exception e) {
             e.printStackTrace();
         }

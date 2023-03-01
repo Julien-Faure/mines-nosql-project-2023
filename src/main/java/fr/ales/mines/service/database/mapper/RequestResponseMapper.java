@@ -14,6 +14,17 @@ public interface RequestResponseMapper {
             .build();
     }
 
+
+    static Request11Response mapPostgres11(String[] line) {
+        Request11Response.Request11ResponseBuilder builder = Request11Response.builder();
+
+        return builder
+            .productName(line[0])
+            .totalQuantity(Integer.parseInt(line[1]))
+            .numPurchases(Integer.parseInt(line[2]))
+            .build();
+    }
+
     static Request12Response map12(Record neo4jRecord) {
         Request12Response.Request12ResponseBuilder builder = Request12Response.builder();
 
@@ -21,6 +32,17 @@ public interface RequestResponseMapper {
             .totalProduct(neo4jRecord.get("num_products").asInt())
             .totalQuantity(neo4jRecord.get("total_quantity").asInt())
             .numPurchases(neo4jRecord.get("num_purchases").asInt())
+            .build();
+    }
+
+    static Request12Response mapPostgres12(String[][] request12) {
+        Request12Response.Request12ResponseBuilder builder = Request12Response.builder();
+        String[] line = request12[0];
+
+        return builder
+            .totalProduct(Integer.parseInt(line[0]))
+            .totalQuantity(Integer.parseInt(line[1]))
+            .numPurchases(Integer.parseInt(line[2]))
             .build();
     }
 
@@ -38,4 +60,6 @@ public interface RequestResponseMapper {
 
         return builder.productName(neo4jRecord.get("product").asString()).usersCount(neo4jRecord.get("num_users").asInt()).build();
     }
+
+
 }

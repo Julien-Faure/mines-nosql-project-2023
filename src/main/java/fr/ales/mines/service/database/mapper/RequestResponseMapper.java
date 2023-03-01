@@ -55,11 +55,22 @@ public interface RequestResponseMapper {
             .build();
     }
 
+    static Request20Response mapPostgres2(String[][] request2) {
+        Request20Response.Request20ResponseBuilder builder = Request20Response.builder();
+
+        String[] line = request2[0];
+        if(line[0] == null)
+            line[0] = "0";
+        return builder
+            .totalQuantity(Integer.parseInt(line[0]))
+            .purchasesCount(Integer.parseInt(line[1]))
+            .build();
+    }
+
     static Request30Response map3(Record neo4jRecord) {
         Request30Response.Request30ResponseBuilder builder = Request30Response.builder();
 
         return builder.productName(neo4jRecord.get("product").asString()).usersCount(neo4jRecord.get("num_users").asInt()).build();
     }
-
 
 }

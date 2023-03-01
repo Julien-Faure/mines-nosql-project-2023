@@ -1,9 +1,6 @@
 package fr.ales.mines.service.database;
 
-import fr.ales.mines.entities.Person;
-import fr.ales.mines.entities.Request11Response;
-import fr.ales.mines.entities.Request12Response;
-import fr.ales.mines.entities.Request1Response;
+import fr.ales.mines.entities.*;
 import fr.ales.mines.repository.dto.postgres.PersonPostgresRepository;
 import fr.ales.mines.service.database.mapper.PersonMapper;
 import fr.ales.mines.service.database.mapper.RequestResponseMapper;
@@ -46,6 +43,21 @@ public class DatabaseStrategyPostgresSqlImpl implements DatabaseStrategy {
             .elapsedMsTime(System.currentTimeMillis() - start)
             .request11Response(request11Responses)
             .request12Response(request12Response)
+            .build();
+    }
+
+    @Override
+    public Request2Response executeRequest2(String username, int depth, String productName) {
+        long start = System.currentTimeMillis();
+
+        String[][] request2 = this.repository.executeRequest2(username, depth, productName);
+
+        Request20Response response = RequestResponseMapper.mapPostgres2(request2);
+
+
+        return Request2Response.builder()
+            .elapsedMsTime(System.currentTimeMillis() - start)
+            .payload(response)
             .build();
     }
 }

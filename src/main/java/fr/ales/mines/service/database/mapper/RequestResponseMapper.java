@@ -1,20 +1,9 @@
 package fr.ales.mines.service.database.mapper;
 
 import fr.ales.mines.entities.*;
-import fr.ales.mines.repository.dto.neo4j.Request11Neo4jResult;
 import org.neo4j.driver.Record;
 
 public interface RequestResponseMapper {
-    static Request11Response map11(Request11Neo4jResult neo4jResult) {
-        Request11Response.Request11ResponseBuilder builder = Request11Response.builder();
-
-        return builder
-            .productName(neo4jResult.getProductName())
-            .totalQuantity(neo4jResult.getTotalQuantity())
-            .numPurchases(neo4jResult.getNumPurchases())
-            .build();
-    }
-
     static Request11Response map11(Record neo4jResult) {
         Request11Response.Request11ResponseBuilder builder = Request11Response.builder();
 

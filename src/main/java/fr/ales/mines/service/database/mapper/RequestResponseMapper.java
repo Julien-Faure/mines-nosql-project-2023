@@ -67,10 +67,13 @@ public interface RequestResponseMapper {
             .build();
     }
 
-    static Request30Response map3(Record neo4jRecord) {
+
+    static Request30Response mapPostgres3(String[] request3) {
         Request30Response.Request30ResponseBuilder builder = Request30Response.builder();
 
-        return builder.productName(neo4jRecord.get("product").asString()).usersCount(neo4jRecord.get("num_users").asInt()).build();
+        return builder
+            .level(Integer.parseInt(request3[0]))
+            .usersCount(Integer.parseInt(request3[1]))
+            .build();
     }
-
 }

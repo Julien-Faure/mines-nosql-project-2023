@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class Request30Response {
-
-    private String productName;
+    private int level;
     private int usersCount;
 }

@@ -60,4 +60,22 @@ public class DatabaseStrategyPostgresSqlImpl implements DatabaseStrategy {
             .payload(response)
             .build();
     }
+
+    @Override
+    public Request3Response executeRequest3(String productName, int depth) {
+        long start = System.currentTimeMillis();
+
+        String[][] request3 = this.repository.executeRequest3();
+
+        List<Request30Response> responses = new ArrayList<>();
+
+        for (String[] line : request3) {
+            responses.add(RequestResponseMapper.mapPostgres3(line));
+        }
+
+        return Request3Response.builder()
+            .elapsedMsTime(System.currentTimeMillis() - start)
+            .payload(responses)
+            .build();
+    }
 }

@@ -64,19 +64,4 @@ public class DatabaseStrategyNeo4jImpl implements DatabaseStrategy {
         }
         return null;
     }
-
-    @Override
-    public Request3Response executeRequest3(String productName, int depth) {
-        try {
-            long start = System.currentTimeMillis();
-            Record request3 = this.customRepo.executeRequest3(productName, depth);
-
-            Request30Response response = RequestResponseMapper.map3(request3);
-
-            return Request3Response.builder().elapsedMsTime(System.currentTimeMillis() - start).payload(response).build();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

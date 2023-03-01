@@ -3,6 +3,8 @@ package fr.ales.mines.web.rest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.ales.mines.entities.Person;
+import fr.ales.mines.entities.Request11Response;
+import fr.ales.mines.entities.Request1Response;
 import fr.ales.mines.service.database.DatabaseService;
 import fr.ales.mines.service.database.DatabaseType;
 import java.util.Arrays;
@@ -48,6 +50,19 @@ public class DatabaseController {
         ObjectMapper mapper = new ObjectMapper();
         try {
             return ResponseEntity.ok(mapper.writeValueAsString(persons));
+        } catch (JsonProcessingException e) {
+            log.error("Unable to convert response to JSON : %s".formatted(e.getMessage()), e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/request/1")
+    public ResponseEntity<String> executeRequest1(@RequestParam(name = "username") String username,
+                                                  @RequestParam(name = "depth") int depth) {
+        Request1Response response = this.service.executeRequest1(username, depth);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return ResponseEntity.ok(mapper.writeValueAsString(response));
         } catch (JsonProcessingException e) {
             log.error("Unable to convert response to JSON : %s".formatted(e.getMessage()), e);
             return ResponseEntity.internalServerError().build();

@@ -53,6 +53,12 @@
             <font-awesome-icon icon="users" />
             <span>Requete 1</span>
           </b-dropdown-item>
+
+          <b-dropdown-item to="/database/request/2" active-class="active">
+            <font-awesome-icon icon="users" />
+            <span>Requete 2</span>
+          </b-dropdown-item>
+
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown

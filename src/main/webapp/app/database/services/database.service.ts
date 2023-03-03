@@ -47,6 +47,19 @@ export default class DatabaseService {
     });
   }
 
+  public executeRequest2(userName : string, productName : string, depth : number): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      axios
+        .get(`${requestApiUrl}/2?username=${userName}&productName=${productName}&depth=${depth}`)
+        .then(res => {
+          resolve(res.data);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
 
   public switch(type: String) {
     return new Promise((resolve, reject) => {

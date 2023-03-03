@@ -1,8 +1,10 @@
 import { PersonModel } from '@/shared/model/person.model';
 import axios from 'axios';
 
-const databaseApiUrl = 'api/database';
-const personApiUrl = 'api/person';
+const baseApiUrl = 'api';
+const databaseApiUrl = baseApiUrl + '/database';
+const personApiUrl = baseApiUrl + '/person';
+const requestApiUrl = baseApiUrl + '/request';
 
 export default class DatabaseService {
 
@@ -31,6 +33,20 @@ export default class DatabaseService {
         });
     });
   }
+
+  public executeRequest1(username : string, depth : number): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      axios
+        .get(`${requestApiUrl}/1?username=${username}&depth=${depth}`)
+        .then(res => {
+          resolve(res.data);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
 
   public switch(type: String) {
     return new Promise((resolve, reject) => {

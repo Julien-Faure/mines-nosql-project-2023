@@ -21,23 +21,37 @@
     </label>
 
     <h2>Résultats</h2>
-    <button @click="loadData()">Load</button>
+    <button id="load" @click="loadData">Load</button>
 
-    <div v-if="results">
-    <p>Time : $ {{results.elapsedTime}}</p>
+    <div v-if="result11">
+      <p>Time : {{ elapsed }} ms</p>
       <table>
         <thead>
         <tr>
-          <th>ID</th>
-          <th>NAME</th>
-          <th>EMAIL</th>
+          <th>Total product</th>
+          <th>Total quantity</th>
+          <th>Purchase count</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="p of persons">
-          <td>{{ p.id }}</td>
-          <td>{{ p.name }}</td>
-          <td>{{ p.email }}</td>
+        <td>{{ result12.totalProduct }}</td>
+        <td>{{ result12.totalQuantity }}</td>
+        <td>{{ result12.numPurchases }}</td>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+        <tr>
+          <th>Product name</th>
+          <th>Total quantity</th>
+          <th>Purchase count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="sub of result11">
+          <td>{{ sub.productName }}</td>
+          <td>{{ sub.totalQuantity }}</td>
+          <td>{{ sub.numPurchases }}</td>
         </tr>
         </tbody>
       </table>
@@ -57,6 +71,7 @@ table {
   margin: 0 auto;
   font-size: 14px;
   font-family: Arial, sans-serif;
+  margin-bottom : 50px;
 }
 
 th,
@@ -77,7 +92,7 @@ td:first-child {
 }
 
 p {
-  margin : 0
+  margin: 0
 }
 
 </style>

@@ -59,6 +59,11 @@
             <span>Requete 2</span>
           </b-dropdown-item>
 
+          <b-dropdown-item to="/database/request/3" active-class="active">
+            <font-awesome-icon icon="users" />
+            <span>Requete 3</span>
+          </b-dropdown-item>
+
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown

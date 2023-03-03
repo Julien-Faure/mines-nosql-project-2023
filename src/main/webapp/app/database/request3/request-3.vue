@@ -1,20 +1,17 @@
 <template>
   <div>
-    <h1>Requête 2</h1>
+    <h1>Requête 3</h1>
     <p><b>Sujet : </b>
-      Même requête mais avec spécification d’un produit particulier cette requête
-      permet d’observer le rôle d’influenceur d’un individu suite à un « post » mentionnant
-      un article spécifique.
+      Pour une référence de produit donné, obtenir le nombre de personnes l’ayant
+      commandé dans un cercle de followers « orienté » de niveau n (à effectuer sur
+      plusieurs niveaux : 0, 1, 2 …) permet de rechercher les produits « viraux », c’est-à-
+      dire ceux qui se vendent le plus au sein de groupes de followers par opposition aux
+      achats isolés pour lesquels le groupe social n’a pas d’impact.
     </p>
 
     <h2>Choose your database</h2>
     <database-selector></database-selector>
     <h2>Paramètres</h2>
-    <label>
-      Nom personne :
-      <input id="userName" type="text">
-    </label>
-
     <label>
       Nom produit :
       <input id="productName" type="text">
@@ -33,13 +30,15 @@
       <table>
         <thead>
         <tr>
-          <th>Total quantity</th>
-          <th>Purchase count</th>
+          <th>Level</th>
+          <th>User count</th>
         </tr>
         </thead>
         <tbody>
-          <td>{{ payload.totalQuantity }}</td>
-          <td>{{ payload.purchasesCount }}</td>
+        <tr v-for="sub of payload">
+          <td>{{ sub.level }}</td>
+          <td>{{ sub.usersCount }}</td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -48,7 +47,7 @@
 
 </template>
 
-<script lang="ts" src="./request-2.component.ts"></script>
+<script lang="ts" src="./request-3.component.ts"></script>
 
 <style scoped>
 table {

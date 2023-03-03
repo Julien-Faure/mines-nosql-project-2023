@@ -3,12 +3,12 @@ package fr.ales.mines.service.database;
 import fr.ales.mines.entities.Person;
 import fr.ales.mines.entities.Request1Response;
 import fr.ales.mines.entities.Request2Response;
+import fr.ales.mines.entities.Request3Response;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class DatabaseServiceImpl implements DatabaseService {
@@ -44,5 +44,10 @@ public class DatabaseServiceImpl implements DatabaseService {
     @Override
     public Request2Response executeRequest2(String username, int depth, String productName) {
         return this.strategy.executeRequest2(username, depth, productName);
+    }
+
+    @Override
+    public Request3Response executeRequest3(String productName, int depth) {
+        return this.strategy.executeRequest3(productName, depth);
     }
 }

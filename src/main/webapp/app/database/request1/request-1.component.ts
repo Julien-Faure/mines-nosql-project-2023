@@ -17,7 +17,10 @@ export default class Request1Component extends Vue{
   }
 
   async loadData() : Promise<void>{
-    console.log("Salut toi !");
+    const nameTextbox = this.$el.querySelector('#name') as HTMLInputElement;
+    const depthTextbox = this.$el.querySelector('#depth') as HTMLInputElement;
+
+
   }
 
 }

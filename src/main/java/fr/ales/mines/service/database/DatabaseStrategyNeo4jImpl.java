@@ -54,7 +54,7 @@ public class DatabaseStrategyNeo4jImpl implements DatabaseStrategy {
     public Request2Response executeRequest2(String username, int depth, String productName) {
         try {
             long start = System.currentTimeMillis();
-            Record request2 = this.customRepo.executeRequest2(username, depth, username);
+            Record request2 = this.customRepo.executeRequest2(username, depth, productName);
 
             Request20Response response = RequestResponseMapper.map2(request2);
 

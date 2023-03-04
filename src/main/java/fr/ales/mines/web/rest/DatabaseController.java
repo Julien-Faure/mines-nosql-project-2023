@@ -89,11 +89,8 @@ public class DatabaseController {
     }
 
     @GetMapping("/request/3")
-    public ResponseEntity<String> executeRequest2(
-        @RequestParam(name = "productName") String productName,
-        @RequestParam(name = "depth") int depth
-    ) {
-        Request3Response response = this.service.executeRequest3(productName, depth);
+    public ResponseEntity<String> executeRequest2() {
+        Request3Response response = this.service.executeRequest3();
         ObjectMapper mapper = new ObjectMapper();
         try {
             return ResponseEntity.ok(mapper.writeValueAsString(response));

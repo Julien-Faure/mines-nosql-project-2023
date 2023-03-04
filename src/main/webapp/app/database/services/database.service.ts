@@ -60,10 +60,10 @@ export default class DatabaseService {
     });
   }
 
-  public executeRequest3(productName : string, depth : number): Promise<any> {
+  public executeRequest3(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       axios
-        .get(`${requestApiUrl}/3?productName=${productName}&depth=${depth}`)
+        .get(`${requestApiUrl}/3`)
         .then(res => {
           resolve(res.data);
         })

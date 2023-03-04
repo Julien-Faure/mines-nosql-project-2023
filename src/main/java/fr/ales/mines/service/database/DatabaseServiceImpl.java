@@ -47,7 +47,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public Request3Response executeRequest3(String productName, int depth) {
-        return this.strategy.executeRequest3(productName, depth);
+    public Request3Response executeRequest3() {
+        return this.strategy.executeRequest3();
     }
 }

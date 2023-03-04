@@ -12,15 +12,6 @@
     <h2>Choose your database</h2>
     <database-selector></database-selector>
     <h2>Paramètres</h2>
-    <label>
-      Nom produit :
-      <input id="productName" type="text">
-    </label>
-
-    <label>
-      Profondeur :
-      <input id="depth" type="number">
-    </label>
 
     <h2>Résultats</h2>
     <button id="load" @click="loadData">Load</button>

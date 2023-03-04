@@ -20,10 +20,8 @@ export default class Request3Component extends Vue{
   }
 
   loadData() {
-    const productNameTextbox = this.$el.querySelector('#productName') as HTMLInputElement;
-    const depthTextbox = this.$el.querySelector('#depth') as HTMLInputElement;
 
-    this.databaseService().executeRequest3(productNameTextbox.value, Number.parseInt(depthTextbox.value))
+    this.databaseService().executeRequest3()
       .then(value => {
         this.elapsed = value.elapsedMsTime!;
         this.payload = value.payload;

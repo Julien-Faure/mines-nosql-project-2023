@@ -17,7 +17,7 @@ public interface DatabaseStrategy {
         return Request2Response.builder().build();
     }
 
-    default Request3Response executeRequest3(String productName, int depth) {
+    default Request3Response executeRequest3() {
         return Request3Response.builder().build();
     }
 }

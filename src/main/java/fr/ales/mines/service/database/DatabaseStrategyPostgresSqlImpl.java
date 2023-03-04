@@ -62,7 +62,7 @@ public class DatabaseStrategyPostgresSqlImpl implements DatabaseStrategy {
     }
 
     @Override
-    public Request3Response executeRequest3(String productName, int depth) {
+    public Request3Response executeRequest3() {
         long start = System.currentTimeMillis();
 
         String[][] request3 = this.repository.executeRequest3();

@@ -24,19 +24,6 @@
             <span>Home</span>
           </span>
         </b-nav-item>
-        <b-nav-item-dropdown right id="entity-menu" active-class="active" class="pointer" data-cy="entity">
-          <span slot="button-content" class="navbar-dropdown-menu">
-            <font-awesome-icon icon="th-list" />
-            <span class="no-bold">Entities</span>
-          </span>
-          <entities-menu></entities-menu>
-          <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
-          <b-dropdown-item to="/project/users" active-class="active">
-            <font-awesome-icon icon="users" />
-            <span>Users</span>
-          </b-dropdown-item>
-        </b-nav-item-dropdown>
-
         <b-nav-item-dropdown right active-class="active" class="pointer" data-cy="entity">
           <span slot="button-content" class="navbar-dropdown-menu">
             <font-awesome-icon icon="th-list" />
@@ -64,90 +51,6 @@
             <span>Requete 3</span>
           </b-dropdown-item>
 
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown
-          right
-          id="admin-menu"
-          v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated"
-          :class="{ 'router-link-active': subIsActive('/admin') }"
-          active-class="active"
-          class="pointer"
-          data-cy="adminMenu"
-        >
-          <span slot="button-content" class="navbar-dropdown-menu">
-            <font-awesome-icon icon="users-cog" />
-            <span class="no-bold">Administration</span>
-          </span>
-          <b-dropdown-item to="/admin/user-management" active-class="active">
-            <font-awesome-icon icon="users" />
-            <span>User management</span>
-          </b-dropdown-item>
-          <b-dropdown-item to="/admin/metrics" active-class="active">
-            <font-awesome-icon icon="tachometer-alt" />
-            <span>Metrics</span>
-          </b-dropdown-item>
-          <b-dropdown-item to="/admin/health" active-class="active">
-            <font-awesome-icon icon="heart" />
-            <span>Health</span>
-          </b-dropdown-item>
-          <b-dropdown-item to="/admin/configuration" active-class="active">
-            <font-awesome-icon icon="cogs" />
-            <span>Configuration</span>
-          </b-dropdown-item>
-          <b-dropdown-item to="/admin/logs" active-class="active">
-            <font-awesome-icon icon="tasks" />
-            <span>Logs</span>
-          </b-dropdown-item>
-          <b-dropdown-item v-if="openAPIEnabled" to="/admin/docs" active-class="active">
-            <font-awesome-icon icon="book" />
-            <span>API</span>
-          </b-dropdown-item>
-          <b-dropdown-item v-if="!inProduction" href="./h2-console/" target="_tab">
-            <font-awesome-icon icon="database" />
-            <span>Database</span>
-          </b-dropdown-item>
-        </b-nav-item-dropdown>
-        <b-nav-item-dropdown
-          right
-          href="javascript:void(0);"
-          id="account-menu"
-          :class="{ 'router-link-active': subIsActive('/account') }"
-          active-class="active"
-          class="pointer"
-          data-cy="accountMenu"
-        >
-          <span slot="button-content" class="navbar-dropdown-menu">
-            <font-awesome-icon icon="user" />
-            <span class="no-bold"> Account </span>
-          </span>
-          <b-dropdown-item data-cy="settings" to="/account/settings" tag="b-dropdown-item" v-if="authenticated" active-class="active">
-            <font-awesome-icon icon="wrench" />
-            <span>Settings</span>
-          </b-dropdown-item>
-          <b-dropdown-item data-cy="passwordItem" to="/account/password" tag="b-dropdown-item" v-if="authenticated" active-class="active">
-            <font-awesome-icon icon="lock" />
-            <span>Password</span>
-          </b-dropdown-item>
-          <b-dropdown-item data-cy="logout" v-if="authenticated" v-on:click="logout()" id="logout" active-class="active">
-            <font-awesome-icon icon="sign-out-alt" />
-            <span>Sign out</span>
-          </b-dropdown-item>
-          <b-dropdown-item data-cy="login" v-if="!authenticated" v-on:click="openLogin()" id="login" active-class="active">
-            <font-awesome-icon icon="sign-in-alt" />
-            <span>Sign in</span>
-          </b-dropdown-item>
-          <b-dropdown-item
-            data-cy="register"
-            to="/register"
-            tag="b-dropdown-item"
-            id="register"
-            v-if="!authenticated"
-            active-class="active"
-          >
-            <font-awesome-icon icon="user-plus" />
-            <span>Register</span>
-          </b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -184,7 +87,7 @@
 
 /* ==========================================================================
     Logo styles
-    ========================================================================== */
+     ========================================================================== */
 .navbar-brand.logo {
   padding: 5px 15px;
 }
